@@ -37,7 +37,6 @@ Pod::Spec.new do |s|
                                "HEADER_SEARCH_PATHS" => "\"$(PODS_TARGET_SRCROOT)/React/CoreModules\" \"$(PODS_ROOT)/RCT-Folly\" \"${PODS_ROOT}/Headers/Public/React-Codegen/react/renderer/components\" \"${PODS_CONFIGURATION_BUILD_DIR}/React-Codegen/React_Codegen.framework/Headers\""
                              }
 
-  s.dependency "React-Codegen", version
   s.dependency "RCT-Folly", folly_version
   s.dependency "RCTTypeSafety", version
   s.dependency "React-Core/CoreModulesHeaders", version
