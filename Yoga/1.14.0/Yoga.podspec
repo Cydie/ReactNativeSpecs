@@ -6,9 +6,9 @@
 Pod::Spec.new do |spec|
   spec.name = 'Yoga'
   spec.version = '1.14.0'
-  spec.license =  { :type => 'MIT' }
-  spec.homepage = 'https://yogalayout.com'
-  spec.documentation_url = 'https://yogalayout.com/docs/'
+  spec.license =  { :type => 'MIT', :file => "LICENSE" }
+  spec.homepage = 'https://yogalayout.com/'
+  spec.documentation_url = 'https://yogalayout.com/docs'
 
   spec.summary = 'Yoga is a cross-platform layout engine which implements Flexbox.'
   spec.description = 'Yoga is a cross-platform layout engine enabling maximum collaboration within your team by implementing an API many designers are familiar with, and opening it up to developers across different platforms.'
@@ -18,12 +18,11 @@ Pod::Spec.new do |spec|
     :git => 'https://github.com/facebook/yoga.git',
     :tag => spec.version.to_s,
   }
-
+  spec.platforms = { :ios => "8.0", :osx => "10.7", :tvos => "10.0", :watchos => "2.0" }
   spec.module_name = 'yoga'
-  spec.header_dir = 'yoga'
   spec.requires_arc = false
   spec.pod_target_xcconfig = {
-      'DEFINES_MODULE' => 'YES'
+    'DEFINES_MODULE' => 'YES'
   }
   spec.compiler_flags = [
       '-fno-omit-frame-pointer',
@@ -33,15 +32,7 @@ Pod::Spec.new do |spec|
       '-std=c++1y',
       '-fPIC'
   ]
+  spec.source_files = 'yoga/**/*.{c,h,cpp}'
+  spec.public_header_files = 'yoga/{Yoga,YGEnums,YGMacros,YGValue}.h'
 
-  # Pinning to the same version as React.podspec.
-  spec.platforms = { :ios => "11.0" }
-
-  # Set this environment variable when *not* using the `:path` option to install the pod.
-  # E.g. when publishing this spec to a spec repo.
-  source_files = 'yoga/**/*.{cpp,h}'
-  spec.source_files = source_files
-
-  header_files = 'yoga/{Yoga,YGEnums,YGMacros,YGNode,YGStyle,YGValue}.h'
-  spec.public_header_files = header_files
 end
