@@ -31,7 +31,7 @@ Pod::Spec.new do |s|
   s.author                 = "Facebook, Inc. and its affiliates"
   s.platforms              = { :ios => "11.0" }
   s.compiler_flags         = folly_compiler_flags + ' -Wno-nullability-completeness'
-  s.source                 = { :git => '' }
+  s.source                 = { :git => 'https://github.com/Cydie/ReactNativeSpecs.git' }
   s.source_files           = "**/*.{c,m,mm,cpp}"
   # This podspec is used to trigger the codegen, and built files are generated in a different location.
   # We don't want this pod to actually include any files.
