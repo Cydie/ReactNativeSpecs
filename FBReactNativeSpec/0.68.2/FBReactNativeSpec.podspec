@@ -5,8 +5,8 @@
 
 require "json"
 
-react_native_path = "../.."
-require_relative "#{react_native_path}/scripts/react_native_pods.rb"
+react_native_path = ""
+require_relative "scripts/react_native_pods.rb"
 
 package = JSON.parse(File.read(File.join(__dir__, "..", "..", "package.json")))
 version = package['version']
@@ -32,10 +32,10 @@ Pod::Spec.new do |s|
   s.platforms              = { :ios => "11.0" }
   s.compiler_flags         = folly_compiler_flags + ' -Wno-nullability-completeness'
   s.source                 = { :git => 'https://github.com/Cydie/ReactNativeSpecs.git' }
-  s.source_files           = "**/*.{c,m,mm,cpp,h}"
+  s.source_files           = "src/*.{c,m,mm,cpp,h}"
   # This podspec is used to trigger the codegen, and built files are generated in a different location.
   # We don't want this pod to actually include any files.
-  s.header_dir             = "*"
+  s.header_dir             = "src"
 
   s.pod_target_xcconfig    = {
                                "USE_HEADERMAP" => "YES",
