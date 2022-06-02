@@ -35,7 +35,7 @@ Pod::Spec.new do |s|
   s.source_files           = "src/*.{c,m,mm,cpp,h}"
   # This podspec is used to trigger the codegen, and built files are generated in a different location.
   # We don't want this pod to actually include any files.
-  s.header_dir             = "src"
+  s.header_dir             = "*"
 
   s.pod_target_xcconfig    = {
                                "USE_HEADERMAP" => "YES",
